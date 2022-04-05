@@ -1,0 +1,119 @@
+<section id="wrapper" class="login-register login-sidebar"
+    style="background-image:url(assets/images/utags/VISIT-1.jpg);">
+    <div class="login-box card">
+        <div class="logo-uta-icono">
+            <a class="text-center db  m-t-0 m-b-0">
+                <img src="assets/images/utags/logo.jpg" class="card-img-top img-responsive align-self-center mt-2"
+                    alt="utags" style="width: 40%;" />
+            </a>
+        </div>
+
+        <h2 class="box-title m-t-0 m-b-0 center-align text-center db text-uppercase">Regístro</h2>
+        <div class="divScroll">
+            <div class="card-body">
+                <form (ngSubmit)="addUser(forma)" #forma="ngForm" class="form-horizontal form-material"
+                    autocomplete="off" id="loginform">
+                    <div class="form-group m-2 mt-2">
+                        <div class="col-xs-0">
+                            <label class="small"><strong>Nombre(s)</strong></label>
+                            <input
+                                [ngClass]="{'is-invalid': strName.errors?.required && forma.controls['strName'].touched }"
+                                class="form-control capitalize"
+                                onkeyup="javascript:this.value=this.value.toLowerCase();" type="text" name="strName"
+                                [(ngModel)]="user.strName" placeholder="Nombre" #strName="ngModel" required>
+                            <div class="invalid-feedback" *ngIf="strName.errors?.required">
+                                Es necesario ingresar el nombre del usuario
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group m-2">
+                        <div class="col-xs-0">
+                            <label class="small"><strong>Apellido Paterno</strong></label>
+                            <input
+                                [ngClass]="{'is-invalid': strLastName.errors?.required && forma.controls['strLastName'].touched }"
+                                class="form-control ng-untouched ng-pristine ng-valid capitalize"
+                                onkeyup="javascript:this.value=this.value.toLowerCase();" type="text" required=""
+                                name="strLastName" #lastname="ngModel" [(ngModel)]="user.strLastName"
+                                #strLastName="ngModel" placeholder="Apellido Paterno">
+                            <div class="invalid-feedback" *ngIf="strLastName.errors?.required">
+                                Es necesario ingresar el apellido paterno del usuario
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group m-2">
+                        <div class="col-xs-0">
+                            <label class="small"><strong>Apellido Materno</strong></label>
+                            <input
+                                [ngClass]="{'is-invalid': strMotherLastName.errors?.required && forma.controls['strMotherLastName'].touched }"
+                                class="form-control capitalize"
+                                onkeyup="javascript:this.value=this.value.toLowerCase();" type="text"
+                                name="strMotherLastName" #motherlastname="ngModel" [(ngModel)]="user.strMotherLastName"
+                                #strMotherLastName="ngModel" placeholder="Apellido Materno">
+                        </div>
+                    </div>
+
+                    <div class="form-group m-2 ">
+                        <div class="col-xs-0">
+                            <label class="small"><strong>Correo Electrónico</strong></label>
+                            <input [value]="user.strEmail" type="email"
+                                [ngClass]="{'is-invalid': strEmail.errors?.required && forma.controls['strEmail'].touched }"
+                                pattern=".+(utags\.edu.mx|UTAGS\.EDU.MX)" class="form-control" type="text"
+                                name="strEmail" placeholder="Correo Electrónico" #strEmail="ngModel"
+                                [(ngModel)]="user.strEmail" required (ngModelChange)="correoToLowerCase($event)">
+                            <div class="text-danger" *ngIf="strEmail.errors?.pattern">
+                                <small>Es necesario ingresar un correo electrónico institucional
+                                    (ejemplo@utags.edu.mx)</small>
+                            </div>
+                            <div class="invalid-feedback" *ngIf="strEmail.errors?.required">
+                                Es necesario ingresar el email del usuario
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group  m-2">
+                        <div class="col-xs-0">
+                            <label class="small"><strong>Contraseña</strong></label>
+                            <input
+                                [ngClass]="{'is-invalid': strPassword.errors?.required && forma.controls['strPassword'].touched }"
+                                minlength="8" class="form-control" type="password" name="strPassword"
+                                #password="ngModel" [(ngModel)]="user.strPassword" placeholder="Contraseña"
+                                #strPassword="ngModel" required>
+                            <div class="text-danger small mt-1" *ngIf="strPassword.errors?.minlength">
+                                Mínimo 8 caracteres.
+                            </div>
+                            <div class="invalid-feedback" *ngIf="strPassword.errors?.required">
+                                Es necesario ingresar la contraseña del usuario
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group m-2">
+                        <div class="col-xs-0">
+                            <label class="small"><strong>Confirmar Contraseña</strong></label>
+                            <input
+                                [ngClass]="{'is-invalid': strPassword.errors?.required && forma.controls['strPassword'].touched }"
+                                class="form-control" type="password" [(ngModel)]="repetPassword" name="strPassword"
+                                placeholder="Confirmar Contraseña" #strPassword="ngModel" requiered>
+                            <div class="invalid-feedback" *ngIf="strPassword.errors?.required">
+                                Es necesario confirmar la contraseña
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <a class="text-center mb-5">
+                        <button type="submit" [ngClass]="{'btn-dis': !clickRegistro}"
+                            class="btn btn-dark btn-lg btn-block btn-rounded text-uppercase mt-3">Crear mi
+                            cuenta</button>
+                        <div class="text-center mt-3">
+                            ¿Ya tienes una cuenta? <a [routerLink]="['/login']" class="text-dark m-l-5"><b>Iniciar
+                                    Sesión</b></a>
+                        </div>
+                    </a>
+
+                </form>
+            </div>
+        </div>
+    </div>

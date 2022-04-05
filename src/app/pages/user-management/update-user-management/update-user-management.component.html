@@ -1,0 +1,79 @@
+<div class="card">
+    <div class="row">
+        <div class="col-md-12">
+
+            <h4 class="animated fadeIn fast"><i class="fa fa-user mr-2 mt-3"></i> Actualizar Usuario</h4>
+            <hr>
+
+            <form (ngSubmit)="updateUser(forma)" #forma="ngForm" novalidate="" enctype="multipart/form-data">
+                <div class="form-group-sm small">
+                    <div class="row">
+                        <div class="form-group col-md-12">
+                            <div class="">
+                                <label class=""><strong>Nombre</strong></label>
+                                <input [class.is-invalid]="strName.invalid && strName.touched" type="text"
+                                    class="form-control form-control-sm" placeholder="Nombres" name="strName"
+                                    [(ngModel)]="usuario.strName" required #strName="ngModel">
+                                <div class="invalid-feedback" *ngIf="strName.errors?.required">
+                                    <small>
+                                        Es necesario ingresar un nombre.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <div class="">
+                                <label class=""><strong>Primer Apellido</strong></label>
+                                <input type="text" class="form-control form-control-sm" placeholder="Primer Apellido"
+                                    name="strLastName" [(ngModel)]="usuario.strLastName" required
+                                    #strLastName="ngModel">
+                            </div>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <div class="">
+                                <label class=""><strong>Segundo Apellido</strong></label>
+                                <input type="text" class="form-control form-control-sm" placeholder="Segundo Apellido"
+                                    name="strMotherLastName" [(ngModel)]="usuario.strMotherLastName" required
+                                    #strMotherLastName="ngModel">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-12">
+
+
+                            <div class="mt-2">
+                                <label class=""><strong>Estatus</strong></label>
+                                <select [class.is-invalid]="blnStatus.invalid && blnStatus.touched"
+                                    class="custom-select form-control form-control-sm" name="blnStatus"
+                                    [(ngModel)]="usuario.blnStatus" required #blnStatus="ngModel">
+                                    <option [ngValue]="true">Activo</option>
+                                    <option [ngValue]="false">Inactivo</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="list-inline mt-3 text-right">
+                <div class="list-inline-item">
+                    <div class="form-group row">
+                        <div class="mr-3">
+                            <button type="button" (click)="updateCanceled()"
+                                class="btn btn-outline-danger btn-sm mr-2 "><i
+                                    class="fa fa-times mr-2"></i>Cancelar</button>
+                            <button type="button" (click)="updateUser(forma)" class="btn btn-outline-info btn-sm "><i
+                                    class="fa fa-save mr-2 "></i>Actualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

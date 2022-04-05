@@ -1,0 +1,36 @@
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <li class="user-profile">
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                            class="fa fa-user-circle-o"></i><span class="hide-menu" style="font-size: small;">
+                            {{userName}} </span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a routerLinkActive="active" [routerLink]="['/account-settings']"><i
+                                    class="ti-settings mr-1"></i>Ajustes de Usuario</a></li>
+                    </ul>
+                </li>
+                <li class="nav-devider"></li>
+                <!-- <li class="nav-small-cap">PERSONAL</li> -->
+
+
+                <li *ngFor="let menu of arrFinal"> <a class="has-arrow waves-effect waves-dark" aria-expanded="false"><i
+                            [class]="menu.icono"></i><span class="hide-menu">{{ menu.titulo }}<span
+                                class="label label-rouded label-themecolor pull-right">{{ menu.submenus.length
+                                }}</span></span></a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li *ngFor="let submenu of menu.submenus">
+                            <a routerLinkActive="active" [routerLink]="[ submenu.url ]"><i [class]="submenu.icono"></i>
+                                {{ submenu.titulo }} </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>

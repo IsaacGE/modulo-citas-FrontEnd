@@ -1,0 +1,83 @@
+<header class="topbar">
+    <nav class="navbar top-navbar navbar-expand-md navbar-light">
+        <!-- ============================================================== -->
+        <!-- Logo -->
+        <!-- ============================================================== -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">
+                <!-- Logo icon --><b>
+                    <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                    <!-- Dark Logo icon -->
+                    <img style="max-height: 50px; max-width: 50px;" src="assets/images/LogoMonedita.png" alt="homepage"
+                        class="dark-logo" />
+                    <!-- Light Logo icon -->
+                    <img style="max-height: 50px; max-width: 50px;" src="assets/images/LogoMonedita2.png" alt="homepage"
+                        class="light-logo" />
+                </b>
+                <!--End Logo icon -->
+                <!-- Logo text -->
+                <span>
+                    <!-- dark Logo text -->
+                    <img src="assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                    <!-- Light Logo text -->
+                    <img src="assets/images/logo-light-text.png" class="light-logo" alt="homepage" />
+                </span>
+            </a>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Logo -->
+        <!-- ============================================================== -->
+        <div class="navbar-collapse">
+            <!-- ============================================================== -->
+            <!-- toggle and nav items -->
+            <!-- ============================================================== -->
+            <ul class="navbar-nav mr-auto">
+                <!-- This is  -->
+                <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up waves-effect waves-dark"
+                        href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down waves-effect waves-dark"
+                        href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                <li class="nav-item hidden-sm-down"></li>
+            </ul>
+            <!-- ============================================================== -->
+            <!-- User profile and search -->
+            <!-- ============================================================== -->
+            <ul class="navbar-nav my-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"><span class="mr-3"><b>Vistantes UTAGS</b></span><img
+                            src="assets/images/users/profile2.png" alt="user" class="profile-pic" /></a>
+                    <div class="dropdown-menu dropdown-menu-right animated flipInY">
+                        <ul class="dropdown-user">
+                            <li>
+                                <div class="dw-user-box">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div style="max-width: 50px;" class="u-img"><img
+                                                    src="assets/images/users/profile2.png" alt="user"></div>
+                                        </div>
+                                        <div class="u-text text-center">
+                                            <h4> {{userName}} </h4>
+                                            <p class="text-muted" style="font-size:x-small;"> {{userEmail}} </p>
+                                            <a [routerLink]="['/registro-alerta']"
+                                                class="btn btn-block btn-rounded btn-info btn-sm"><i
+                                                    class="fa fa-plus"></i> Nueva Cita</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li><a [routerLink]="['/account-settings']"><i class="ti-settings mr-1"></i> Ajustes del
+                                    Usuario</a></li>
+                            <div class="container">
+                                <li role="separator" class="divider"></li>
+                            </div>
+                            <li><a style="cursor: pointer;" (click)="logout()"><i class="ti-shift-right mr-1"></i>
+                                    Cerrar Sesión</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

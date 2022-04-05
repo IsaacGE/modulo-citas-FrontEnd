@@ -1,0 +1,7 @@
+<select [id]="name" (ngModelChange)="retornarValor($event)" [title]="titulo" [ngClass]="{'is-invalid': validModel.errors?.required && validModel.touched }" data-container="body" class="selectpicker show-tick form-control form-control-sm" data-size="4"
+    data-dropup-auto=false [(ngModel)]="modelo" #validModel="ngModel" name="{{name}}" type="text" [required]="required" [multiple]="multiple" [disabled]="disabled">
+    <option style="font-size: 14px;" *ngFor="let dato of arrDatos" [attr.data-subtext]="dato.strSubtext?dato.strSubtext:''" [attr.data-icon]="dato.strIcon?dato.strIcon:'fa fa-caret-right'" [ngValue]="dato._id"> {{dato.strNombre}}</option>
+</select>
+<div class="invalid-feedback" *ngIf="validModel.errors?.required && validModel.touched">
+    <small>{{mensajeValidacion}}</small>
+</div>
