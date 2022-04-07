@@ -59,13 +59,9 @@
                             <label class="small"><strong>Correo Electrónico</strong></label>
                             <input [value]="user.strEmail" type="email"
                                 [ngClass]="{'is-invalid': strEmail.errors?.required && forma.controls['strEmail'].touched }"
-                                pattern=".+(utags\.edu.mx|UTAGS\.EDU.MX)" class="form-control" type="text"
+                                class="form-control" type="text"
                                 name="strEmail" placeholder="Correo Electrónico" #strEmail="ngModel"
                                 [(ngModel)]="user.strEmail" required (ngModelChange)="correoToLowerCase($event)">
-                            <div class="text-danger" *ngIf="strEmail.errors?.pattern">
-                                <small>Es necesario ingresar un correo electrónico institucional
-                                    (ejemplo@utags.edu.mx)</small>
-                            </div>
                             <div class="invalid-feedback" *ngIf="strEmail.errors?.required">
                                 Es necesario ingresar el email del usuario
                             </div>
