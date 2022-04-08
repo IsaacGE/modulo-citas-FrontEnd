@@ -1,45 +1,59 @@
 <div class="container-citas">
     <div class="btn-group me-2" role="group" aria-label="Second group">
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Buscar"
-                aria-label="Buscar" aria-describedby="button-addon2">
+            <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
+                aria-describedby="button-addon2">
             <button class="btn btn-dark" stype="button" id="button-addon2">
                 <i class="fa fa-download" aria-hidden="true"></i>
             </button>
         </div>
-        <button class="btn btn-dark" type="button" id="button-addon3">
+        <label class="btn btn-dark" type="button" id="button-addon3" for="btn-modal">
             <i class="fa fa-plus" aria-hidden="true"></i>
             Nueva cita
-        </button>
+        </label>
+
+        <input type="checkbox" id="btn-modal">
+        <div class="container-modal">
+            <div class="content-modal">
+                <!--Aqui agregan el formulario -->
+                <h2>Modal window</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, nostrum!</p>
+                <div class="btn-cerrar">
+                    <label for="btn-modal">X</label>
+                </div>
+            </div>
+            <label for="btn-modal" class="cerrar-modal"></label>
+        </div>
+
     </div>
 
     <div class="contenedor-citas">
         <table class="table">
             <thead>
                 <tr>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Descripción</th>
-                  <th scope="col">Persona visitante</th>
-                  <th scope="col">Persona UTAGS</th>
-                  <th scope="col">Fecha inicio</th>
-                  <th scope="col">Fecha fin</th>
-                  <th scope="col">Hora</th>
-                  <th scope="col">Estatus</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Persona visitante</th>
+                    <th scope="col">Persona UTAGS</th>
+                    <th scope="col">Fecha inicio</th>
+                    <th scope="col">Fecha fin</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Estatus</th>
                 </tr>
-              </thead>
-              <tbody>
+            </thead>
+            <tbody>
                 <tr>
-                  <td scope="row">1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                  <td>
-                  </td>
+                    <td scope="row">1</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                    <td>
+                    </td>
                 </tr>
-              </tbody>
+            </tbody>
         </table>
     </div>
 </div>

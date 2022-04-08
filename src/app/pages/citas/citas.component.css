@@ -7,7 +7,81 @@
 .container-citas .btn-group #button-addon3{
     margin-left: 20px;
     height: 39px;
+    border-radius: 5px;
 }
 .container-citas .btn-group{
     width: 100%;
+}
+
+.boton-modal{
+    padding: 40px;
+    background-color: #fff;
+}
+
+#btn-modal{
+    display: none;
+}
+.container-modal{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0; left: 0;
+    background-color: rgba(0, 0, 0, 0.534);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+#btn-modal:checked ~ .container-modal{
+    display: flex;
+}
+
+.content-modal{
+    width: 100%;
+    max-width: 800px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 5px;
+    position: relative;
+}
+.content-modal h2{
+    margin-bottom: 15px;
+}
+.content-modal .btn-cerrar{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.content-modal .btn-cerrar label{
+    padding: 5px;
+    background-color: #4d4d4d;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 300ms ease;
+    font-weight: bold;
+    height: 35px;
+    width: 35px;
+    text-align: center;
+    align-items: center;
+}
+.content-modal .btn-cerrar label:hover{
+    background-color: #000000;
+}
+
+.cerrar-modal{
+    width:100%;
+    height: 100vh;
+    position: absolute;
+    top:0; left: 0;
+    z-index: -1;
+}
+@media screen and (max-width:800px) {
+    .content-modal{
+        width: 90%;
+    }
+}
+
+.contenedor-citas {
+    overflow: scroll;
 }
