@@ -10,8 +10,7 @@ export class SidebarService {
     {
       titulo: 'VISITAGS', icono: 'fa fa-exclamation-circle',
       submenu: [
-        { titulo: 'Personas', icono: 'fa fa-users', url: '/personas', },
-
+        { titulo: 'Citas', icono: 'fa fa-book', url: '/citas', }
       ]
     },
 

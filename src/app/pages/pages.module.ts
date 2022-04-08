@@ -19,6 +19,7 @@ import { CommonModule } from '@angular/common';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { ShowUserManagementComponent } from './user-management/show-user-management/show-user-management.component';
 import { UpdateUserManagementComponent } from './user-management/update-user-management/update-user-management.component';
+import { CitasComponent } from './citas/citas.component';
 
 
 
@@ -32,7 +33,8 @@ import { UpdateUserManagementComponent } from './user-management/update-user-man
         AccountSettingsComponent,
         UserManagementComponent,
         ShowUserManagementComponent,
-        UpdateUserManagementComponent
+        UpdateUserManagementComponent,
+        CitasComponent
     ],
     exports: [
         DashboardComponent,

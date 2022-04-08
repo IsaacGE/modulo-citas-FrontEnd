@@ -1,0 +1,13 @@
+.container-citas{
+    background: white;
+    padding: 15px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+.container-citas .btn-group #button-addon3{
+    margin-left: 20px;
+    height: 39px;
+}
+.container-citas .btn-group{
+    width: 100%;
+}

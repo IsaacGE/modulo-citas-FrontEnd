@@ -25,7 +25,7 @@ import { SendEmailComponent } from './restore-password/send-email/send-email.com
     RegisterComponent,
     LoginComponent,
     ChangePasswordComponent,
-    SendEmailComponent,
+    SendEmailComponent
 
   ],
   imports: [
