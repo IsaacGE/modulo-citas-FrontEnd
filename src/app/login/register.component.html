@@ -7,7 +7,6 @@
                     alt="utags" style="width: 40%;" />
             </a>
         </div>
-
         <h2 class="box-title m-t-0 m-b-0 center-align text-center db text-uppercase">Regístro</h2>
         <div class="divScroll">
             <div class="card-body">
@@ -26,7 +25,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group m-2">
                         <div class="col-xs-0">
                             <label class="small"><strong>Apellido Paterno</strong></label>
@@ -41,33 +39,33 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group m-2">
                         <div class="col-xs-0">
                             <label class="small"><strong>Apellido Materno</strong></label>
                             <input
                                 [ngClass]="{'is-invalid': strMotherLastName.errors?.required && forma.controls['strMotherLastName'].touched }"
-                                class="form-control capitalize"
-                                onkeyup="javascript:this.value=this.value.toLowerCase();" type="text"
-                                name="strMotherLastName" #motherlastname="ngModel" [(ngModel)]="user.strMotherLastName"
+                                class="form-control ng-untouched ng-pristine ng-valid capitalize"
+                                onkeyup="javascript:this.value=this.value.toLowerCase();" type="text" required=""
+                                name="strMotherLastName" #lastname="ngModel" [(ngModel)]="user.strMotherLastName"
                                 #strMotherLastName="ngModel" placeholder="Apellido Materno">
+                            <div class="invalid-feedback" *ngIf="strMotherLastName.errors?.required">
+                                Es necesario ingresar el apellido materno del usuario
+                            </div>
                         </div>
                     </div>
-
                     <div class="form-group m-2 ">
                         <div class="col-xs-0">
                             <label class="small"><strong>Correo Electrónico</strong></label>
                             <input [value]="user.strEmail" type="email"
                                 [ngClass]="{'is-invalid': strEmail.errors?.required && forma.controls['strEmail'].touched }"
-                                class="form-control" type="text"
-                                name="strEmail" placeholder="Correo Electrónico" #strEmail="ngModel"
-                                [(ngModel)]="user.strEmail" required (ngModelChange)="correoToLowerCase($event)">
+                                class="form-control" type="text" name="strEmail" placeholder="Correo Electrónico"
+                                #strEmail="ngModel" [(ngModel)]="user.strEmail" required
+                                (ngModelChange)="correoToLowerCase($event)">
                             <div class="invalid-feedback" *ngIf="strEmail.errors?.required">
-                                Es necesario ingresar el email del usuario
+                                Es necesario ingresar el email del usuario (ejemplo@gmail.com)
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group  m-2">
                         <div class="col-xs-0">
                             <label class="small"><strong>Contraseña</strong></label>
@@ -84,7 +82,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="form-group m-2">
                         <div class="col-xs-0">
                             <label class="small"><strong>Confirmar Contraseña</strong></label>
@@ -97,8 +94,6 @@
                             </div>
                         </div>
                     </div>
-
-
                     <a class="text-center mb-5">
                         <button type="submit" [ngClass]="{'btn-dis': !clickRegistro}"
                             class="btn btn-dark btn-lg btn-block btn-rounded text-uppercase mt-3">Crear mi
@@ -108,7 +103,6 @@
                                     Sesión</b></a>
                         </div>
                     </a>
-
                 </form>
             </div>
         </div>
