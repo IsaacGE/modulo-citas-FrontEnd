@@ -8,6 +8,7 @@
     margin-left: 20px;
     height: 39px;
     border-radius: 5px;
+    background: black;
 }
 .container-citas .btn-group{
     width: 100%;
@@ -37,12 +38,24 @@
 }
 
 .content-modal{
-    width: 100%;
-    max-width: 800px;
+    width: 95%;
     padding: 15px;
     background-color: #fff;
     border-radius: 5px;
     position: relative;
+}
+.content-modal .input-group label{
+    margin-bottom: 10px;
+    color: #000000;
+}
+.content-modal #boton-limpiar{
+    background-color: #383838;
+    color: white;
+}
+.content-modal #boton-agendar{
+    background-color: #000000;
+    color: white;
+    margin-left: 20px;
 }
 .content-modal h2{
     margin-bottom: 15px;

@@ -3,7 +3,7 @@
         <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
                 aria-describedby="button-addon2">
-            <button class="btn btn-dark" stype="button" id="button-addon2">
+            <button class="btn btn-dark" type="button" id="button-addon2">
                 <i class="fa fa-download" aria-hidden="true"></i>
             </button>
         </div>
@@ -16,8 +16,40 @@
         <div class="container-modal">
             <div class="content-modal">
                 <!--Aqui agregan el formulario -->
-                <h2>Modal window</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, nostrum!</p>
+                <h1>Nueva cita</h1>
+                <div class="input-group mb-3">
+                    <label for="nombre">Nomre de la empresa</label>
+                    <input type="text" id="descri" placeholder="Nombre de la empresa" class="form-control" [(ngModel)]="Empresa">
+                    <label for="Desc">Descripción</label>
+                    <input type="text" placeholder="Descripción" class="form-control" [(ngModel)]="Descripcion">
+                </div>
+
+                <div class="input-group mb-3">
+                    <label for="Persona visitante">Persona visitante</label>
+                    <input type="text" placeholder="Persona visitante" class="form-control" [(ngModel)]="Visitante">
+                    <label for="Persona utags">Persona utags</label>
+                    <input type="text" id="utags" placeholder="Persona utags" class="form-control" [(ngModel)]="PersonaUtags">
+                </div>
+
+                <div class="input-group mb-3">
+                    <label for="nombre">Fecha inicio</label>
+                    <input type="date" class="form-control" [(ngModel)]="FechaInicio">
+                    <label for="Fecha fin">Fecha fin</label>
+                    <input type="date" id="FechFin" class="form-control" [(ngModel)]="FechaFin">
+                </div>
+
+                <div class="input-group mb-3">
+                    <label for="Hora">Hora</label>
+                    <input type="time" placeholder="Hora" class="form-control" [(ngModel)]="Hora">
+                    <button class="btn btn-secondary" id="boton-limpiar" type="button" (click)="limpiarDatos()">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                        Limpiar
+                    </button>
+                    <button class="btn btn-dark" id="boton-agendar" type="button" (click)="registrarCita()">
+                        <i class="fa fa-save" aria-hidden="true"></i>
+                        Agendar
+                    </button>
+                </div>
                 <div class="btn-cerrar">
                     <label for="btn-modal">X</label>
                 </div>
@@ -42,15 +74,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td scope="row">1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                <tr *ngFor="let citasAux of citasList; let i = index">
+                    <td>{{citasAux.strNombre}}</td>
+                    <td>{{citasAux.strDescripcion}}</td>
+                    <td>{{citasAux.strPersonaVisitante}}</td>
+                    <td>{{citasAux.strPersonaUtags}}</td>
+                    <td>{{citasAux.dteFechaInicio}}</td>
+                    <td>{{citasAux.dteFechaFin}}</td>
+                    <td>{{citasAux.strHora}}</td>
                     <td>
+                        <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                     </td>
                 </tr>
             </tbody>
