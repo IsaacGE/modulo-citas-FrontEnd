@@ -1,71 +1,101 @@
-.container-citas{
+.container-citas {
     background: white;
     padding: 15px;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
 }
-.container-citas .btn-group #button-addon3{
+
+.container-citas .btn-group #button-addon3 {
     margin-left: 20px;
     height: 39px;
     border-radius: 5px;
     background: black;
 }
-.container-citas .btn-group{
+
+.container-citas .btn-group {
     width: 100%;
 }
 
-.boton-modal{
+.boton-modal {
     padding: 40px;
     background-color: #fff;
 }
 
-#btn-modal{
+#btn-modal,
+#btn-modal-update {
     display: none;
 }
-.container-modal{
+
+.container-modal,
+.container-modal2 {
     width: 100%;
     height: 100vh;
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     background-color: rgba(0, 0, 0, 0.534);
     display: none;
     justify-content: center;
     align-items: center;
     z-index: 100;
 }
-#btn-modal:checked ~ .container-modal{
+
+#btn-modal:checked~.container-modal {
     display: flex;
+    transition: all 0.4s;
 }
 
-.content-modal{
-    width: 95%;
+#btn-modal-update:checked~.container-modal2 {
+    display: flex;
+    transition: all 0.4s;
+}
+
+.content-modal {
+    width: 900px;
     padding: 15px;
     background-color: #fff;
     border-radius: 5px;
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
 }
-.content-modal .input-group label{
+
+.content-modal .row {
+    margin-bottom: 15px;
+}
+
+.content-modal .row .col label {
+    color: #000;
+}
+
+.content-modal .input-group label,
+.container-modal2 .input-group label {
     margin-bottom: 10px;
-    color: #000000;
+    color: #000;
 }
-.content-modal #boton-limpiar{
+
+.content-modal #boton-limpiar {
     background-color: #383838;
     color: white;
 }
-.content-modal #boton-agendar{
+
+.content-modal #boton-agendar {
     background-color: #000000;
     color: white;
     margin-left: 20px;
 }
-.content-modal h2{
+
+.content-modal h2 {
     margin-bottom: 15px;
 }
-.content-modal .btn-cerrar{
+
+.content-modal .btn-cerrar {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 5px;
+    right: 5px;
 }
-.content-modal .btn-cerrar label{
+
+.content-modal .btn-cerrar label {
     padding: 5px;
     background-color: #4d4d4d;
     color: #fff;
@@ -78,23 +108,72 @@
     text-align: center;
     align-items: center;
 }
-.content-modal .btn-cerrar label:hover{
+
+.content-modal .btn-cerrar label:hover {
     background-color: #000000;
 }
 
-.cerrar-modal{
-    width:100%;
+.cerrar-modal {
+    width: 100%;
     height: 100vh;
     position: absolute;
-    top:0; left: 0;
+    top: 0;
+    left: 0;
     z-index: -1;
 }
-@media screen and (max-width:800px) {
-    .content-modal{
-        width: 90%;
+
+@media screen and (max-width:920px) {
+    .content-modal {
+        width: 95%;
     }
 }
 
 .contenedor-citas {
-    overflow: scroll;
+    overflow-x: scroll;
+}
+
+.checkBox-true,
+.checkBox-false {
+    background-color: #000;
+    border-radius: 15px;
+    width: 35px;
+    height: 18px;
+    position: relative;
+    padding: 5px;
+    box-shadow: 2px 5px 5px 0px rgba(0, 0, 0, 0.33);
+    -webkit-box-shadow: 2px 5px 5px 0px rgba(0, 0, 0, 0.33);
+    -moz-box-shadow: 2px 5px 5px 0px rgba(0, 0, 0, 0.33);
+}
+
+.checkBox-false {
+    background-color: #fff;
+}
+
+.checkBox-true i,
+.checkBox-false i {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    top: 1px;
+    right: 1px;
+}
+
+.checkBox-false i {
+    left: 1px;
+    top: 1px;
+    background-color: #000;
+}
+
+.msgNoCitas {
+    text-align: center;
+}
+
+.msgNoCitas h3 {
+    color: #8f0000;
+}
+
+.contenedor-citas .table thead tr th {
+    font-weight: 500;
 }
