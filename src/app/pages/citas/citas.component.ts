@@ -17,6 +17,7 @@ export class CitasComponent implements OnInit {
   Descripcion: String
   PersonaUtags: String
   FechaFin: String
+  SearchText: String
 
   constructor(private http: HttpClient) {
     this.Empresa = ""
@@ -26,6 +27,8 @@ export class CitasComponent implements OnInit {
     this.Descripcion = ""
     this.PersonaUtags = ""
     this.FechaFin = ""
+
+    this.SearchText = ""
     
     this.citasList = []
     this.consultaCitas()

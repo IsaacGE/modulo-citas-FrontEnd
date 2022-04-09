@@ -1,8 +1,8 @@
 <div class="container-citas">
     <div class="btn-group me-2" role="group" aria-label="Second group">
         <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscar"
-                aria-describedby="button-addon2">
+            <input type="text" class="form-control" name="search" placeholder="Buscar" aria-label="Buscar"
+                aria-describedby="button-addon2" [(ngModel)]="SearchText">
             <button class="btn btn-dark" type="button" id="button-addon2">
                 <i class="fa fa-download" aria-hidden="true"></i>
             </button>
@@ -74,7 +74,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let citasAux of citasList; let i = index">
+                <tr *ngFor="let citasAux of citasList | filter:SearchText; let i = index">
                     <td>{{citasAux.strNombre}}</td>
                     <td>{{citasAux.strDescripcion}}</td>
                     <td>{{citasAux.strPersonaVisitante}}</td>
