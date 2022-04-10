@@ -26,6 +26,7 @@ export class CitasComponent implements OnInit {
   userId: any
 
   constructor(private http: HttpClient) {
+    this.consultaCitas()
     this.Empresa = ""
     this.Visitante = ""
     this.Hora = ""
@@ -36,12 +37,10 @@ export class CitasComponent implements OnInit {
     this.FechaFin = null
 
     this.citasList = []
-    this.consultaCitas(this.userId)
 
     this.titleToDo = "Nueva Cita"
     this.editando = false
     this.idToUpdate = ""
-
   }
 
   registrarCita() {
@@ -66,7 +65,7 @@ export class CitasComponent implements OnInit {
           timer: 3000
         })
         this.limpiarDatos('clear');
-        this.consultaCitas(this.userId);
+        this.consultaCitas();
       },
       err => {
         console.log(this.citasList)
@@ -90,11 +89,14 @@ export class CitasComponent implements OnInit {
     this.FechaFin = null
   }
 
-  consultaCitas(idUser) {
-    this.http.get('http://localhost:3000/api/citas/getCitas?idUsuario='+idUser).subscribe(
+  consultaCitas() {
+    const tokenDecoded = jwt_decode(localStorage.getItem('aa_token'));
+    this.userId = tokenDecoded.user._id
+    console.log("ID del usuario: "+this.userId)
+    this.http.get('http://localhost:3000/api/citas/getCitas?idUsuario='+this.userId).subscribe(
       (res: any) => {
         this.citasList = res.citas
-        console.log(res.citas)
+        console.log(res)
       },
       err => {
         this.citasList = []
@@ -132,7 +134,7 @@ export class CitasComponent implements OnInit {
                 'success'
               )
             }
-            this.consultaCitas(this.userId)
+            this.consultaCitas()
           },
           err => {
             console.log("Error Update status!")
@@ -186,10 +188,11 @@ export class CitasComponent implements OnInit {
             )
             console.log(res)
             this.limpiarDatos('clear');
-            this.consultaCitas(this.userId);
+            this.consultaCitas();
           },
-          err => {
-            console.log("Error al actualizar: " + err)
+          (err:any) => {
+            console.log("Error al actualizar:")
+            throw err
           }
         )
       }
@@ -197,9 +200,7 @@ export class CitasComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const tokenDecoded = jwt_decode(localStorage.getItem('aa_token'));
-    this.userId = tokenDecoded.user._id
-    console.log("ID del usuario"+this.userId)
+    
   }
 
 }
